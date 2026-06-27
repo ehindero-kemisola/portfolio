@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kems Ehindero — PMO & Project Support Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F5F0E8;
+    --sand: #E8D5B7;
+    --olive: #6B7C4E;
+    --olive-light: #8A9E64;
+    --rust: #C4622D;
+    --brown: #4A3728;
+    --brown-light: #7A5C48;
+    --peach: #F2B49B;
+    --peach-light: #F9D9CC;
+    --white: #FDFAF5;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--cream);
+    color: var(--brown);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(245, 240, 232, 0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--sand);
+    padding: 0 2rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--brown);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brown-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--rust); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 2rem 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-text {}
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--olive);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 500;
+    line-height: 1.05;
+    color: var(--brown);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--rust);
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+    color: var(--brown-light);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 440px;
+  }
+
+  .hero-roles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .role-tag {
+    background: var(--peach-light);
+    color: var(--brown);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.35rem 0.85rem;
+    border-radius: 2rem;
+    letter-spacing: 0.03em;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    background: var(--rust);
+    color: var(--white);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .hero-cta:hover { background: var(--brown); }
+
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--sand);
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid var(--olive);
+  }
+
+  .stat-card.rust { border-left-color: var(--rust); }
+  .stat-card.peach { border-left-color: var(--peach); }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--brown);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--brown-light);
+    font-weight: 400;
+    letter-spacing: 0.03em;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 5rem 2rem;
+  }
+
+  section.alt { background: var(--sand); }
+  section.white { background: var(--white); }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--olive);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+    color: var(--brown);
+    line-height: 1.15;
+    margin-bottom: 2.5rem;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--brown-light);
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .about-text p:last-child { margin-bottom: 0; }
+
+  .about-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .aside-block {
+    background: var(--cream);
+    border: 1px solid var(--sand);
+    padding: 1.25rem;
+    border-top: 3px solid var(--rust);
+  }
+
+  .aside-block h4 {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--olive);
+    margin-bottom: 0.5rem;
+  }
+
+  .aside-block p {
+    font-size: 0.85rem;
+    color: var(--brown-light);
+    line-height: 1.6;
+  }
+
+  /* BOOKEASE NARRATIVE */
+  .project-narrative {
+    background: var(--brown);
+    color: var(--cream);
+    padding: 3rem;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+
+  .project-narrative::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 5px;
+    background: var(--peach);
+  }
+
+  .project-narrative h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--peach);
+    margin-bottom: 1rem;
+  }
+
+  .project-narrative p {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: #D4C5B5;
+  }
+
+  .project-narrative p + p { margin-top: 1rem; }
+
+  /* ARTEFACT CARDS */
+  .artefacts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .artefact-card {
+    background: var(--white);
+    border: 1px solid var(--sand);
+    padding: 2rem;
+    position: relative;
+    transition: box-shadow 0.2s;
+  }
+
+  .artefact-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--olive);
+  }
+
+  .artefact-card.rust::before { background: var(--rust); }
+  .artefact-card.peach::before { background: var(--peach); }
+  .artefact-card.brown::before { background: var(--brown); }
+
+  .artefact-card:hover { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
+
+  .artefact-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .artefact-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--brown);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .artefact-card p {
+    font-size: 0.85rem;
+    color: var(--brown-light);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .artefact-tag {
+    display: inline-block;
+    background: var(--peach-light);
+    color: var(--brown);
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.25rem 0.65rem;
+    letter-spacing: 0.04em;
+    margin-top: 0.25rem;
+  }
+
+  /* NSHDP */
+  .nshdp-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .nshdp-text h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--brown);
+    margin-bottom: 1rem;
+  }
+
+  .nshdp-text p {
+    font-size: 0.9rem;
+    color: var(--brown-light);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+
+  .nshdp-context {
+    font-size: 0.78rem;
+    color: var(--olive);
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+
+  .priority-areas {
+    background: var(--brown);
+    padding: 2rem;
+    color: var(--cream);
+  }
+
+  .priority-areas h4 {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--peach);
+    margin-bottom: 1.25rem;
+  }
+
+  .priority-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .priority-list li {
+    font-size: 0.78rem;
+    color: #C4B5A8;
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .priority-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--peach);
+    font-size: 0.7rem;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-block {
+    padding: 1.75rem;
+    background: var(--white);
+    border: 1px solid var(--sand);
+  }
+
+  .skill-block h4 {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .skill-tag {
+    background: var(--cream);
+    border: 1px solid var(--sand);
+    color: var(--brown);
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
+    font-weight: 400;
+  }
+
+  .skill-tag.muted {
+    color: var(--brown-light);
+    opacity: 0.7;
+    font-style: italic;
+  }
+
+  /* CONTACT */
+  .contact-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact-inner .section-label { justify-content: center; display: block; }
+  .contact-inner .section-title { margin-bottom: 1rem; }
+
+  .contact-sub {
+    font-size: 0.92rem;
+    color: var(--brown-light);
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .contact-link.primary {
+    background: var(--rust);
+    color: var(--white);
+  }
+
+  .contact-link.primary:hover { background: var(--brown); }
+
+  .contact-link.secondary {
+    background: transparent;
+    color: var(--brown);
+    border: 1.5px solid var(--brown);
+  }
+
+  .contact-link.secondary:hover {
+    background: var(--brown);
+    color: var(--white);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--brown);
+    color: #9A8070;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* FADE IN */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fade-in { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .nshdp-block { grid-template-columns: 1fr; gap: 2rem; }
+    nav { padding: 0 1rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.7rem; }
+    section { padding: 3.5rem 1.25rem; }
+    .project-narrative { padding: 2rem 1.5rem; }
+  }
+
+  @media (max-width: 480px) {
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Kems Ehindero</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#bookease">BookEase</a></li>
+    <li><a href="#nshdp">Policy Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section style="padding-top: 0; padding-bottom: 0; background: var(--cream);">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-text fade-in">
+        <p class="hero-eyebrow">PMO &amp; Project Support Portfolio</p>
+        <h1 class="hero-name">Bringing<br/><em>order</em> to<br/>moving parts.</h1>
+        <p class="hero-tagline">I am a structured and proactive PMO and project support professional with experience in governance, reporting, stakeholder coordination, and documentation across public health and project delivery environments.</p>
+        <div class="hero-roles">
+          <span class="role-tag">PMO Analyst</span>
+          <span class="role-tag">Project Support Officer</span>
+          <span class="role-tag">Business Analyst</span>
+        </div>
+        <a href="#bookease" class="hero-cta">View My Work</a>
+      </div>
+      <div class="hero-visual fade-in" style="transition-delay: 0.15s;">
+        <div class="stat-card">
+          <div class="stat-number">6</div>
+          <div class="stat-label">Months leading PMO on BookEase</div>
+        </div>
+        <div class="stat-card rust">
+          <div class="stat-number">93</div>
+          <div class="stat-label">User stories managed across 10 epics in Jira</div>
+        </div>
+        <div class="stat-card peach">
+          <div class="stat-number">15</div>
+          <div class="stat-label">National health priority areas supported — NSHDP II</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="alt">
+  <div class="section-inner">
+    <p class="section-label">About Me</p>
+    <h2 class="section-title">Structure, clarity,<br/>and follow-through.</h2>
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <p>I moved into PMO and project support work because I realised I am strongest in roles where I can bring structure, clarity, and coordination to a team. What draws me to PMO specifically is that it sits at the centre of delivery — supporting progress in a practical way while working across people, processes, timelines, and stakeholder expectations.</p>
+        <p>I enjoy organising information, tracking progress, and making sure nothing important falls through the cracks. Beyond my CV, I am dependable, resourceful, and conscientious about the quality of my work. I take ownership, I follow through, and I do not like leaving things disorganised or unfinished.</p>
+        <p>I work well in team environments but I am also comfortable taking initiative when something needs to be chased, clarified, or improved. I learn quickly, I adapt well, and even where I am still developing, I make up for it with commitment, attention to detail, and a genuine willingness to figure things out properly.</p>
+      </div>
+      <div class="about-aside fade-in" style="transition-delay: 0.15s;">
+        <div class="aside-block">
+          <h4>Education</h4>
+          <p>MPH — University of Wolverhampton<br/>BSc Biochemistry — Elizade University</p>
+        </div>
+        <div class="aside-block">
+          <h4>Currently Targeting</h4>
+          <p>PMO Analyst · Project Support Officer · Business Analyst roles across the UK</p>
+        </div>
+        <div class="aside-block">
+          <h4>Based In</h4>
+          <p>Wolverhampton, UK</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKEASE -->
+<section id="bookease" class="white">
+  <div class="section-inner">
+    <p class="section-label">Featured Project</p>
+    <h2 class="section-title">BookEase — Appointment<br/>Scheduling System</h2>
+
+    <div class="project-narrative fade-in">
+      <h3>Project Overview</h3>
+      <p>BookEase was a web-based appointment scheduling system designed to help professionals manage client bookings efficiently using free, open-source plugins. Built on WordPress and integrating tools including Booking Calendar and Contact Form 7, the platform enabled calendar-based appointment booking, automated email notifications, client information collection, and manual payment tracking — giving small professional practices a lightweight but functional scheduling solution.</p>
+      <p>The project ran over six months, beginning with a cross-functional team of 20 and consolidating to a core delivery team of 12 as participation shifted, roles were reshuffled across stages, and a smaller active group emerged over time. Throughout this period, I functioned as the de facto PMO Lead — owning governance, reporting, document control, and meeting discipline end to end. I also worked closely alongside the requirements process, tracking deliverables and maintaining documentation alignment as scope and team composition evolved.</p>
+    </div>
+
+    <div class="artefacts-grid">
+
+      <div class="artefact-card fade-in">
+        <div class="artefact-icon">📊</div>
+        <h3>Stakeholder Reporting &amp; Governance</h3>
+        <p>Produced two weekly reporting outputs throughout the project: a structured Highlight Report covering achievements, upcoming activities, stage tolerance status, risks, issues, and lessons learnt — and a RAG Status dashboard summarising timeline, budget, milestone status, and path-to-green actions. Both were distributed ahead of stakeholder review cycles, keeping the team and Programme Office aligned on progress and decisions required.</p>
+        <span class="artefact-tag">Highlight Report V2.1</span>
+        <span class="artefact-tag">RAG Status Report V2.2</span>
+      </div>
+
+      <div class="artefact-card rust fade-in" style="transition-delay:0.1s;">
+        <div class="artefact-icon">⚠️</div>
+        <h3>RAID Log &amp; Risk Management</h3>
+        <p>Maintained the BookEase RAID log on a weekly basis throughout the project lifecycle, tracking risks, assumptions, issues, and dependencies across four dedicated tabs with a summary dashboard. Each entry was assessed, scored, assigned an owner, and given a mitigation plan with trend monitoring. The RAID log fed directly into the Highlight Report and RAG dashboard, forming a consistent governance loop across all reporting outputs.</p>
+        <span class="artefact-tag">RAID Log V2.2 (sample — Week 14)</span>
+      </div>
+
+      <div class="artefact-card peach fade-in" style="transition-delay:0.2s;">
+        <div class="artefact-icon">📝</div>
+        <h3>Meeting Minutes &amp; Action Management</h3>
+        <p>Managed the meeting minutes function across at least three meetings per week throughout the project. This included assigning minute takers to each session, ensuring consistent structure and quality, and taking minutes directly where needed. Tracked and chased actions between meetings, ensuring accountability between reporting cycles. Minutes fed into the governance cycle, informing the Highlight Report and maintaining an audit trail of decisions across all project stages.</p>
+        <span class="artefact-tag">BA Meeting Minutes V2.2 (sample — Week 13)</span>
+      </div>
+
+      <div class="artefact-card brown fade-in" style="transition-delay:0.3s;">
+        <div class="artefact-icon">📅</div>
+        <h3>Project Planning &amp; Delivery Tracking</h3>
+        <p>Worked alongside the Project Planner to maintain the BookEase Microsoft Project plan across all four stages — Initiation, Define, Execute, and Closure — spanning 42 tasks with sequenced dependencies and resource assignments. Produced a weekly Checklist Report to translate the plan into an operational tracking tool, logging planned and actual dates and progress statuses. Personally owned the commencement and closure of the RAID log — tasks that framed the entire governance lifecycle.</p>
+        <span class="artefact-tag">MS Project Plan V3</span>
+        <span class="artefact-tag">Checklist Report V2.2 (sample)</span>
+      </div>
+
+      <div class="artefact-card fade-in" style="transition-delay:0.1s;">
+        <div class="artefact-icon">🔄</div>
+        <h3>Retrospectives &amp; Lessons Learnt</h3>
+        <p>Co-authored the weekly Lessons Learnt Report throughout the project, capturing areas for improvement and successes with impact ratings and future actions. Recurring themes — inconsistent attendance, late submissions, document quality — fed directly into governance decisions. At stage gate, these lessons were consolidated into the End Stage Report, a formal governance document reviewing performance against time, cost, quality, scope, benefits, and risk, confirming Define Stage completion and authorising progression to Execute.</p>
+        <span class="artefact-tag">Lessons Learnt Report V2.2 (sample)</span>
+        <span class="artefact-tag">End Stage Report V2.0 — Define Stage</span>
+      </div>
+
+      <div class="artefact-card rust fade-in" style="transition-delay:0.2s;">
+        <div class="artefact-icon">📋</div>
+        <h3>Requirements Support &amp; Document Control</h3>
+        <p>Worked closely alongside the BA team throughout the requirements process, supporting tracking, version control, and cross-document alignment across High Level Requirements, a full Business Requirements Document, and a User Story and Acceptance Criteria backlog. Tracked sign-off status, ensured documents were correctly stored in Basecamp, and flagged inconsistencies between artefacts — contributing directly to the stage gate sign-off that authorised progression to Execute Stage.</p>
+        <span class="artefact-tag">HLR V1.0</span>
+        <span class="artefact-tag">BRD V2.0</span>
+        <span class="artefact-tag">User Stories & AC V2.0</span>
+      </div>
+
+      <div class="artefact-card peach fade-in" style="transition-delay:0.3s;">
+        <div class="artefact-icon">🎯</div>
+        <h3>Jira Board Management &amp; Backlog Oversight</h3>
+        <p>Managed and oversaw the BookEase Jira board (project key: BOOK) throughout the project lifecycle. The product backlog comprised 93 user stories across 10 epics, structured across four sprints and prioritised using MoSCoW. Monitored ticket status, ensured stories were correctly assigned and linked to parent epics, followed up on stalled items, and maintained board hygiene so the team had an accurate view of progress at all times.</p>
+        <span class="artefact-tag">Jira Board — BOOK</span>
+        <span class="artefact-tag">Product Backlog — 93 stories, 10 epics</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NSHDP -->
+<section id="nshdp" class="alt">
+  <div class="section-inner">
+    <p class="section-label">Policy &amp; Programme Work</p>
+    <h2 class="section-title">Nigeria NSHDP II —<br/>National Health Strategy</h2>
+    <div class="nshdp-block">
+      <div class="nshdp-text fade-in">
+        <p>Prior to relocating to the UK, I worked as a Programme Support Officer to the Director of Policy and Programmes within the Monitoring and Evaluation Unit at the Federal Ministry of Health Nigeria, where I supported the review process for the National Strategic Health Development Plan II (NSHDP II) — Nigeria's national framework for health system strengthening across 15 priority areas.</p>
+        <p>My contribution was operational and coordination-focused. I ensured meeting participants received daily agendas, managed attendance and sign-in processes, and coordinated stationery and working materials across review sessions. I took meeting minutes, managed travel documentation, and supported document workflows — including the compilation and internal distribution of the NSHDP II draft across all 15 priority areas.</p>
+        <p>Working across a national strategic planning process at ministerial level gave me early exposure to large-scale programme governance, multi-stakeholder coordination, and the document management disciplines that now underpin my PMO practice.</p>
+        <p class="nshdp-context">Federal Ministry of Health Nigeria — M&amp;E Unit | NSHDP II Review Process</p>
+      </div>
+      <div class="priority-areas fade-in" style="transition-delay:0.15s;">
+        <h4>15 Priority Areas Covered</h4>
+        <ul class="priority-list">
+          <li>Leadership &amp; Governance</li>
+          <li>Community Participation in Health</li>
+          <li>Partnership for Health</li>
+          <li>RMNCAEH+N</li>
+          <li>Communicable Diseases</li>
+          <li>NCDs, Mental, Oral &amp; Eye Health</li>
+          <li>Emergency Medical Services &amp; Hospital Care</li>
+          <li>Health Promotion &amp; Social Determinants</li>
+          <li>Human Resources for Health</li>
+          <li>Health Infrastructure</li>
+          <li>Medicines, Vaccines &amp; Health Technologies</li>
+          <li>Health Information</li>
+          <li>Research for Health</li>
+          <li>Public Health Emergencies &amp; Preparedness</li>
+          <li>Health Financing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="white">
+  <div class="section-inner">
+    <p class="section-label">Skills &amp; Tools</p>
+    <h2 class="section-title">What I bring<br/>to the table.</h2>
+    <div class="skills-grid">
+      <div class="skill-block fade-in">
+        <h4>Project Management Tools</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Jira</span>
+          <span class="skill-tag">Microsoft Project</span>
+          <span class="skill-tag">Confluence</span>
+          <span class="skill-tag">Basecamp</span>
+          <span class="skill-tag">SharePoint</span>
+          <span class="skill-tag">WordPress</span>
+          <span class="skill-tag muted">ClickUp (exposure)</span>
+          <span class="skill-tag muted">Asana (exposure)</span>
+          <span class="skill-tag muted">Monday.com (exposure)</span>
+        </div>
+      </div>
+      <div class="skill-block fade-in" style="transition-delay:0.1s;">
+        <h4>Data &amp; Reporting Tools</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Excel</span>
+          <span class="skill-tag">PowerPoint</span>
+          <span class="skill-tag">Word</span>
+          <span class="skill-tag muted">Tableau (exposure)</span>
+        </div>
+      </div>
+      <div class="skill-block fade-in" style="transition-delay:0.2s;">
+        <h4>PMO &amp; Delivery Skills</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Project Governance</span>
+          <span class="skill-tag">RAID Log Management</span>
+          <span class="skill-tag">Stakeholder Reporting</span>
+          <span class="skill-tag">Document Control</span>
+          <span class="skill-tag">Risk &amp; Issue Management</span>
+          <span class="skill-tag">Performance Reporting</span>
+          <span class="skill-tag">Resource Coordination</span>
+          <span class="skill-tag">Process Improvement</span>
+          <span class="skill-tag">Sprint Planning</span>
+          <span class="skill-tag">Data Cleaning</span>
+        </div>
+      </div>
+      <div class="skill-block fade-in" style="transition-delay:0.3s;">
+        <h4>Methodologies</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Agile / Scrum</span>
+          <span class="skill-tag">Waterfall</span>
+          <span class="skill-tag">PRINCE2 (studying — applied in practice)</span>
+        </div>
+      </div>
+      <div class="skill-block fade-in" style="transition-delay:0.1s;">
+        <h4>Domain Knowledge</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Public Health &amp; Programme Administration</span>
+          <span class="skill-tag">Health Policy &amp; Strategy</span>
+          <span class="skill-tag">Data Analysis</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background: var(--peach-light); padding: 5rem 2rem;">
+  <div class="contact-inner">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title" style="margin-bottom:1rem;">Open to opportunities<br/>across the UK.</h2>
+    <p class="contact-sub">I am actively seeking PMO Analyst, Project Support Officer, and Business Analyst roles. If you are looking for someone dependable, structured, and genuinely committed to delivery — let's talk.</p>
+    <div class="contact-links">
+      <a href="mailto:imkemisola@gmail.com" class="contact-link primary">Send Me an Email</a>
+      <a href="https://www.linkedin.com/in/oluwakemisola-ehindero/" class="contact-link secondary">LinkedIn Profile</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Kems Ehindero &nbsp;·&nbsp; PMO &amp; Project Support Professional &nbsp;·&nbsp; Wolverhampton, UK</p>
+</footer>
+
+<script>
+  // Fade in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
