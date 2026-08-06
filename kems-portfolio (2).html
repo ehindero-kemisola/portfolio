@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kemi Ehindero — PMO & Project Support Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F5F0E8; --sand: #E8D5B7; --olive: #6B7C4E; --rust: #C4622D;
+    --brown: #4A3728; --brown-light: #7A5C48; --peach: #F2B49B;
+    --peach-light: #F9D9CC; --white: #FDFAF5;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--brown); font-size: 16px; line-height: 1.7; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(245,240,232,0.96); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--sand); padding: 0 2rem; height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--brown); }
+  .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+  .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brown-light); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--rust); }
+
+  .hero { min-height: 100vh; display: flex; align-items: center; padding: 100px 2rem 4rem; max-width: 1100px; margin: 0 auto; }
+  .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; width: 100%; }
+  .hero-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--olive); margin-bottom: 1.25rem; }
+  .hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem,6vw,5rem); font-weight: 500; line-height: 1.05; color: var(--brown); margin-bottom: 1.5rem; }
+  .hero-name em { font-style: italic; color: var(--rust); }
+  .hero-tagline { font-size: 0.95rem; color: var(--brown-light); line-height: 1.75; margin-bottom: 2rem; max-width: 440px; }
+  .hero-roles { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+  .role-tag { background: var(--peach-light); color: var(--brown); font-size: 0.75rem; font-weight: 500; padding: 0.35rem 0.85rem; border-radius: 2rem; }
+  .hero-cta { display: inline-block; background: var(--rust); color: var(--white); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.85rem 2rem; text-decoration: none; transition: background 0.2s; }
+  .hero-cta:hover { background: var(--brown); }
+  .hero-visual { display: flex; flex-direction: column; gap: 1rem; }
+  .stat-card { background: var(--white); border: 1px solid var(--sand); padding: 1.25rem 1.5rem; border-left: 4px solid var(--olive); }
+  .stat-card.rust { border-left-color: var(--rust); }
+  .stat-card.peach { border-left-color: var(--peach); }
+  .stat-number { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 600; color: var(--brown); line-height: 1; margin-bottom: 0.25rem; }
+  .stat-label { font-size: 0.78rem; color: var(--brown-light); }
+
+  section { padding: 5rem 2rem; }
+  section.alt { background: var(--sand); }
+  section.white { background: var(--white); }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--olive); margin-bottom: 0.75rem; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,4vw,3rem); font-weight: 500; color: var(--brown); line-height: 1.15; margin-bottom: 2.5rem; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; }
+  .about-text p { color: var(--brown-light); margin-bottom: 1.25rem; font-size: 0.95rem; }
+  .about-aside { display: flex; flex-direction: column; gap: 1rem; }
+  .aside-block { background: var(--cream); border: 1px solid var(--sand); padding: 1.25rem; border-top: 3px solid var(--rust); }
+  .aside-block h4 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--olive); margin-bottom: 0.5rem; }
+  .aside-block p { font-size: 0.85rem; color: var(--brown-light); line-height: 1.6; }
+
+  /* PORTFOLIO INTRO */
+  .portfolio-intro { background: var(--brown); color: var(--cream); padding: 2.5rem 3rem; margin-bottom: 3rem; border-left: 5px solid var(--peach); }
+  .portfolio-intro h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--peach); margin-bottom: 0.75rem; }
+  .portfolio-intro p { font-size: 0.92rem; color: #D4C5B5; line-height: 1.8; }
+
+  /* PROJECT CARDS */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+  .project-card { background: var(--white); border: 1px solid var(--sand); padding: 2rem; position: relative; transition: box-shadow 0.2s; }
+  .project-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--olive); }
+  .project-card.rust::before { background: var(--rust); }
+  .project-card.peach::before { background: var(--peach); }
+  .project-card.brown::before { background: var(--brown); }
+  .project-card:hover { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
+  .project-status { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.65rem; margin-bottom: 0.75rem; }
+  .project-status.completed { background: var(--olive); color: var(--white); }
+  .project-status.active { background: var(--rust); color: var(--white); }
+  .project-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--brown); margin-bottom: 0.5rem; line-height: 1.2; }
+  .project-type { font-size: 0.75rem; color: var(--olive); font-weight: 500; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .project-card p { font-size: 0.85rem; color: var(--brown-light); line-height: 1.7; margin-bottom: 1rem; }
+  .project-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .meta-item { font-size: 0.75rem; color: var(--brown-light); }
+  .meta-item strong { color: var(--brown); }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .project-tag { background: var(--peach-light); color: var(--brown); font-size: 0.68rem; padding: 0.2rem 0.6rem; }
+
+  /* BOOKEASE SECTION */
+  .project-narrative { background: var(--brown); color: var(--cream); padding: 3rem; margin-bottom: 3rem; position: relative; }
+  .project-narrative::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--peach); }
+  .project-narrative h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; color: var(--peach); margin-bottom: 1rem; }
+  .project-narrative p { font-size: 0.92rem; line-height: 1.8; color: #D4C5B5; }
+  .project-narrative p + p { margin-top: 1rem; }
+  .artefacts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .artefact-card { background: var(--white); border: 1px solid var(--sand); padding: 2rem; position: relative; transition: box-shadow 0.2s; }
+  .artefact-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--olive); }
+  .artefact-card.rust::before { background: var(--rust); }
+  .artefact-card.peach::before { background: var(--peach); }
+  .artefact-card.brown::before { background: var(--brown); }
+  .artefact-card:hover { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
+  .artefact-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+  .artefact-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--brown); margin-bottom: 0.75rem; line-height: 1.2; }
+  .artefact-card p { font-size: 0.85rem; color: var(--brown-light); line-height: 1.7; margin-bottom: 1rem; }
+  .artefact-tag { display: inline-block; background: var(--peach-light); color: var(--brown); font-size: 0.7rem; font-weight: 500; padding: 0.25rem 0.65rem; margin-top: 0.25rem; margin-right: 0.25rem; }
+
+  /* NSHDP */
+  .nshdp-block { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .nshdp-text h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; color: var(--brown); margin-bottom: 1rem; }
+  .nshdp-text p { font-size: 0.9rem; color: var(--brown-light); line-height: 1.75; margin-bottom: 1rem; }
+  .nshdp-context { font-size: 0.78rem; color: var(--olive); font-style: italic; }
+  .priority-areas { background: var(--brown); padding: 2rem; }
+  .priority-areas h4 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--peach); margin-bottom: 1.25rem; }
+  .priority-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .priority-list li { font-size: 0.78rem; color: #C4B5A8; padding-left: 1rem; position: relative; line-height: 1.5; }
+  .priority-list li::before { content: '—'; position: absolute; left: 0; color: var(--peach); font-size: 0.7rem; }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+  .skill-block { padding: 1.75rem; background: var(--white); border: 1px solid var(--sand); }
+  .skill-block h4 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rust); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--sand); }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .skill-tag { background: var(--cream); border: 1px solid var(--sand); color: var(--brown); font-size: 0.75rem; padding: 0.3rem 0.7rem; }
+  .skill-tag.muted { color: var(--brown-light); opacity: 0.7; font-style: italic; }
+
+  /* CERTIFICATIONS */
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+  .cert-card { background: var(--white); border: 1px solid var(--sand); border-top: 3px solid var(--olive); padding: 1.25rem 1.5rem; }
+  .cert-card.rust { border-top-color: var(--rust); }
+  .cert-card.peach { border-top-color: var(--peach); }
+  .cert-name { font-size: 0.9rem; font-weight: 500; color: var(--brown); margin-bottom: 0.25rem; }
+  .cert-issuer { font-size: 0.78rem; color: var(--brown-light); }
+  .cert-status { display: inline-block; margin-top: 0.5rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--olive); background: var(--peach-light); padding: 0.2rem 0.6rem; }
+
+  /* CONTACT */
+  .contact-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+  .contact-sub { font-size: 0.92rem; color: var(--brown-light); margin-bottom: 2.5rem; }
+  .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .contact-link { display: inline-block; padding: 0.85rem 2rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
+  .contact-link.primary { background: var(--rust); color: var(--white); }
+  .contact-link.primary:hover { background: var(--brown); }
+  .contact-link.secondary { background: transparent; color: var(--brown); border: 1.5px solid var(--brown); }
+  .contact-link.secondary:hover { background: var(--brown); color: var(--white); }
+
+  footer { background: var(--brown); color: #9A8070; text-align: center; padding: 2rem; font-size: 0.78rem; letter-spacing: 0.04em; }
+
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { .fade-in { opacity: 1; transform: none; transition: none; } }
+
+  @media (max-width: 768px) {
+    .hero-inner, .about-grid, .nshdp-block { grid-template-columns: 1fr; gap: 2rem; }
+    nav { padding: 0 1rem; } .nav-links { gap: 1rem; } .nav-links a { font-size: 0.7rem; }
+    section { padding: 3.5rem 1.25rem; } .project-narrative, .portfolio-intro { padding: 2rem 1.5rem; }
+  }
+  @media (max-width: 480px) { .nav-links { display: none; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Kemi Ehindero</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#bookease">BookEase</a></li>
+    <li><a href="#nshdp">Policy Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section style="padding-top:0;padding-bottom:0;background:var(--cream);">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-text fade-in">
+        <p class="hero-eyebrow">PMO &amp; Project Support Portfolio</p>
+        <h1 class="hero-name">Bringing<br/><em>order</em> to<br/>moving parts.</h1>
+        <p class="hero-tagline">Project Coordinator and PMO Lead with a background in public health programme delivery and digital transformation. Experienced in governance reporting, RAID management, milestone tracking, and multi-agency coordination across Agile, Waterfall, and hybrid delivery environments.</p>
+        <div class="hero-roles">
+          <span class="role-tag">PMO Analyst</span>
+          <span class="role-tag">Project Coordinator</span>
+          <span class="role-tag">Programme Support</span>
+          
+        </div>
+        <a href="#portfolio" class="hero-cta">View My Work</a>
+      </div>
+      <div class="hero-visual fade-in" style="transition-delay:0.15s;">
+        <div class="stat-card">
+          <div class="stat-number">£372k</div>
+          <div class="stat-label">Portfolio value managed across concurrent digital transformation projects</div>
+        </div>
+        <div class="stat-card rust">
+          <div class="stat-number">53→84%</div>
+          <div class="stat-label">On-time action completion — achieved within 5 months</div>
+        </div>
+        <div class="stat-card peach">
+          <div class="stat-number">30%</div>
+          <div class="stat-label">Reduction in unresolved risks and issues</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="alt">
+  <div class="section-inner">
+    <p class="section-label">About Me</p>
+    <h2 class="section-title">Structure, clarity,<br/>and follow-through.</h2>
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <p>I am a Project Coordinator and PMO Lead with a background spanning public health programme delivery and PMO support for digital transformation and health-service projects. I bring genuine public health expertise to health-sector stakeholder conversations, having coordinated multi-agency policy work with organisations including WHO, UNICEF, and USAID.</p>
+        <p>I moved into PMO and project support work because I am strongest in roles where I can bring structure, clarity, and coordination to a team. What draws me to PMO is that it sits at the centre of delivery — supporting progress in a practical way while working across people, processes, timelines, and stakeholder expectations.</p>
+        <p>I am dependable, resourceful, and conscientious about the quality of my work. I take ownership, I follow through, and I do not like leaving things disorganised or unfinished. I am comfortable taking initiative when something needs to be chased, clarified, or improved — and I learn quickly even where I am still developing.</p>
+        <p>I am actively seeking PMO Analyst, Project Coordinator, and Programme Support roles across the UK.</p>
+      </div>
+      <div class="about-aside fade-in" style="transition-delay:0.15s;">
+        <div class="aside-block">
+          <h4>Education</h4>
+          <p>MPH Public Health — University of Wolverhampton (2023–2024)<br/>BSc (Hons) Biochemistry — Elizade University (2016–2020)</p>
+        </div>
+        <div class="aside-block">
+          <h4>Currently Targeting</h4>
+          <p>PMO Analyst · Project Coordinator · Programme Support</p>
+        </div>
+        <div class="aside-block">
+          <h4>Certifications in Progress</h4>
+          <p>P3O Foundation · PRINCE2 Foundation · BCS Business Analysis Foundation (EXIN)</p>
+        </div>
+        <div class="aside-block">
+          <h4>Based In</h4>
+          <p>West Midlands, UK</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO — CURRENT ROLE -->
+<section id="portfolio" class="white">
+  <div class="section-inner">
+    <p class="section-label">Project Portfolio</p>
+    <h2 class="section-title">Digital Transformation<br/>Portfolio — Oct 2024 to Present</h2>
+
+    <div class="portfolio-intro fade-in">
+      <h3>About This Portfolio</h3>
+      <p>Since October 2024 I have been working as Project Coordinator and PMO Lead on a portfolio of digital transformation projects, coordinating PMO governance across up to 4 concurrent projects using Planview, Smartsheet, Jira, Confluence, and Excel. Projects span digital platform builds, service-improvement initiatives, and AI-assisted tools — delivered across Agile Scrum, Waterfall, and Wagile (hybrid) environments within cross-functional teams averaging 14 members. Project details are shown at a high level in line with confidentiality obligations.</p>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="project-card fade-in">
+        <span class="project-status completed">Completed</span>
+        <div class="project-type">Digital Platform · Internal Tool</div>
+        <p>Centralised digital platform for Programme Office staff to manage and update project records, eliminating manual processes and improving data accuracy. Features included automated weekly reminders, a request management module, project categorisation, and priority tagging to streamline task management.</p>
+        <div class="project-tags">
+          <span class="project-tag">PMO Lead</span>
+          <span class="project-tag">Governance Reporting</span>
+          <span class="project-tag">RAID Management</span>
+          <span class="project-tag">Stakeholder Coordination</span>
+        </div>
+      </div>
+
+      <div class="project-card rust fade-in" style="transition-delay:0.1s;">
+        <span class="project-status completed">Completed</span>
+        <div class="project-type">Web Development · Digital Delivery</div>
+        <p>Responsive portfolio website for a freelancer, featuring dynamic project listing and a contact form connected to an email service via a custom API endpoint. Built using Next.js with Framer Motion animations and deployed on Vercel.</p>
+        <div class="project-tags">
+          <span class="project-tag">PMO Coordination</span>
+          <span class="project-tag">Milestone Tracking</span>
+          <span class="project-tag">Sprint Planning</span>
+          <span class="project-tag">Agile Scrum</span>
+        </div>
+      </div>
+
+      <div class="project-card peach fade-in" style="transition-delay:0.2s;">
+        <span class="project-status completed">Completed</span>
+        <div class="project-type">AI &amp; Automation · Customer Service</div>
+        <p>AI-powered customer support chatbot providing 24/7 automated assistance with multilingual capability. Built with React, Node.js, and Dialogflow for natural language processing, with Firebase for real-time chat storage and a conversation analytics dashboard.</p>
+        <div class="project-tags">
+          <span class="project-tag">PMO Lead</span>
+          <span class="project-tag">Risk Management</span>
+          <span class="project-tag">Dependency Tracking</span>
+          <span class="project-tag">Agile Scrum</span>
+        </div>
+      </div>
+
+      <div class="project-card brown fade-in" style="transition-delay:0.3s;">
+        <span class="project-status completed">Completed</span>
+        <div class="project-type">Digital Platform · Membership &amp; E-Commerce</div>
+        <p>Two concurrent digital builds: a custom Next.js membership platform with tiered subscriptions, role-based access control, and Stripe payment integration; and a WordPress WooCommerce print-on-demand store with product personalisation, POD vendor integration, and order tracking.</p>
+        <div class="project-tags">
+          <span class="project-tag">PMO Lead</span>
+          <span class="project-tag">Concurrent Project Management</span>
+          <span class="project-tag">Waterfall & Agile</span>
+          <span class="project-tag">UAT</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in" style="transition-delay:0.1s;">
+        <span class="project-status active">Active</span>
+        <h3>AI FAQ Generator</h3>
+        <div class="project-type">AI & Automation · No-Code</div>
+        <p>Automated FAQ generation system where users submit questions via Google Forms and responses are auto-filled using Pabbly Connect and Google Sheets, reviewed manually before publication. Includes a dashboard and a public FAQ view via Google Sites — an AI-assisted, no-code delivery project.</p>
+        <div class="project-tags">
+          <span class="project-tag">PMO Coordination</span>
+          <span class="project-tag">Requirements Support</span>
+          <span class="project-tag">Stakeholder Reporting</span>
+          <span class="project-tag">No-Code Delivery</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PMO APPROACH -->
+    <div class="portfolio-intro fade-in" style="margin-top:1rem;">
+      <h3>How I Operate Across This Portfolio</h3>
+      <p>Across all projects I maintain consistent PMO controls: RAID logs with weekly triage and clear ownership, RAG status reporting using Power BI and Excel, structured action tracking with escalation routes, sprint coordination in Jira and Confluence, and standardised governance documentation across SharePoint. I lead a 3-person PMO team on assigned projects and produce biweekly governance dashboards and management information packs for senior stakeholders — translating delivery data into clear, decision-ready summaries that have reduced stakeholder turnaround time by approximately 20%.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKEASE -->
+<section id="bookease" class="alt">
+  <div class="section-inner">
+    <p class="section-label">Training Project — Deep Dive</p>
+    <h2 class="section-title">BookEase — Appointment<br/>Scheduling Platform</h2>
+
+    <div class="project-narrative fade-in">
+      <h3>Project Overview</h3>
+      <p>BookEase was a web-based appointment scheduling system built on WordPress using Booking Calendar and Contact Form 7, enabling calendar-based booking, automated email notifications, client information collection, and manual payment tracking for small professional practices.</p>
+      <p>The project ran over 22 weeks with a 20+ member Agile team, consolidating to a core delivery group of 12 over time. I functioned as PMO Coordinator and de facto PMO Lead — owning governance, reporting, RAID management, document control, and meeting discipline end to end. I coordinated nine weekly governance reports, improved on-time submission from ~65% to 95%, managed 20–25 RAID items, reduced overdue actions from five to zero, maintained 12 milestones and 12 deliverables in Microsoft Project and Jira, and supported exception reporting for three approved extensions. Documentation standards I introduced were later adopted as templates for subsequent projects.</p>
+    </div>
+
+    <div class="artefacts-grid">
+      <div class="artefact-card fade-in">
+        <div class="artefact-icon">📊</div>
+        <h3>Stakeholder Reporting &amp; Governance</h3>
+        <p>Coordinated nine weekly governance reports, introducing report allocation, template control, standard file naming, central folders, and a governance calendar — improving on-time submission from ~65% to 95%. Produced the Highlight Report and RAG Status dashboard distributed ahead of each stakeholder review cycle.</p>
+        <span class="artefact-tag">Highlight Report V2.1</span>
+        <span class="artefact-tag">RAG Status Report V2.2</span>
+      </div>
+      <div class="artefact-card rust fade-in" style="transition-delay:0.1s;">
+        <div class="artefact-icon">⚠️</div>
+        <h3>RAID Log &amp; Risk Management</h3>
+        <p>Owned the RAID log throughout the project lifecycle, tracking 20–25 live items with weekly triage, assigned owners, and escalation routes. Reduced overdue actions from five to zero. Fed directly into the Highlight Report and RAG dashboard, forming a consistent governance loop.</p>
+        <span class="artefact-tag">RAID Log V2.2 (sample — Week 14)</span>
+      </div>
+      <div class="artefact-card peach fade-in" style="transition-delay:0.2s;">
+        <div class="artefact-icon">📝</div>
+        <h3>Meeting Minutes &amp; Action Management</h3>
+        <p>Managed the minutes function across at least three meetings per week — assigning minute takers, ensuring consistent quality, and taking minutes directly where needed. Introduced structured action tracking and same-day action log circulation. Maintained an audit trail of decisions across all project stages.</p>
+        <span class="artefact-tag">BA Meeting Minutes V2.2 (sample — Week 13)</span>
+      </div>
+      <div class="artefact-card brown fade-in" style="transition-delay:0.3s;">
+        <div class="artefact-icon">📅</div>
+        <h3>Project Planning &amp; Delivery Tracking</h3>
+        <p>Maintained 12 milestones and 12 deliverables in Microsoft Project across all four stages — Initiation, Define, Execute, and Closure — spanning 42 tasks. Produced weekly Checklist Reports and supported exception reporting for three approved extensions to maintain project continuity.</p>
+        <span class="artefact-tag">MS Project Plan V3</span>
+        <span class="artefact-tag">Checklist Report V2.2 (sample)</span>
+      </div>
+      <div class="artefact-card fade-in" style="transition-delay:0.1s;">
+        <div class="artefact-icon">🔄</div>
+        <h3>Retrospectives &amp; Lessons Learnt</h3>
+        <p>Co-authored the weekly Lessons Learnt Report capturing improvements and successes with impact ratings. At stage gate, consolidated into the End Stage Report reviewing performance against time, cost, quality, scope, benefits, and risk — authorising progression to the Execute Stage.</p>
+        <span class="artefact-tag">Lessons Learnt Report V2.2 (sample)</span>
+        <span class="artefact-tag">End Stage Report V2.0</span>
+      </div>
+      <div class="artefact-card rust fade-in" style="transition-delay:0.2s;">
+        <div class="artefact-icon">📋</div>
+        <h3>Requirements Support &amp; Document Control</h3>
+        <p>Contributed to requirements elicitation, documented business requirements and rules, and supported a requirements traceability matrix. Maintained version control and alignment across HLR, BRD, and User Story backlog. Documentation standards adopted as templates for subsequent projects.</p>
+        <span class="artefact-tag">HLR V1.0</span>
+        <span class="artefact-tag">BRD V2.0</span>
+        <span class="artefact-tag">User Stories &amp; AC V2.0</span>
+      </div>
+      <div class="artefact-card peach fade-in" style="transition-delay:0.3s;">
+        <div class="artefact-icon">🎯</div>
+        <h3>Jira Board Management &amp; Backlog Oversight</h3>
+        <p>Managed the BookEase Jira board (BOOK), maintaining a product backlog of 93 user stories across 10 epics and four sprints, prioritised using MoSCoW. Coordinated sprint planning, reviews, and retrospectives. Monitored ticket status and maintained board hygiene throughout.</p>
+        <span class="artefact-tag">Jira Board — BOOK</span>
+        <span class="artefact-tag">Product Backlog — 93 stories, 10 epics</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NSHDP -->
+<section id="nshdp" class="white">
+  <div class="section-inner">
+    <p class="section-label">Policy &amp; Programme Work</p>
+    <h2 class="section-title">Nigeria NSHDP II —<br/>National Health Strategy</h2>
+    <div class="nshdp-block">
+      <div class="nshdp-text fade-in">
+        <p>Prior to relocating to the UK, I worked as a Programme and Project Support Officer to the Director of Policy and Programmes within the Monitoring and Evaluation Unit at the Federal Ministry of Health and Social Welfare, Nigeria — promoted from Administrative Assistant — where I supported the review process for the National Strategic Health Development Plan II (NSHDP II).</p>
+        <p>I co-ordinated policy-review inputs across approximately 15 departments, agencies, and partner organisations including WHO, UNICEF, USAID, NAFDAC, and NCDC. I collated, validated, and documented stakeholder updates and recommendations across four NSHDP II thematic areas, worked with KPIs and monitoring frameworks using Excel and Power BI, and co-ordinated more than five multi-agency policy and technical sessions.</p>
+        <p>I also compiled and documented reports for national meetings covering under-age drinking, RMNCAEH+N quality of care, and the Q1 Health Data Consultative Meeting — giving me early exposure to large-scale programme governance at ministerial level.</p>
+        <p class="nshdp-context">Federal Ministry of Health &amp; Social Welfare Nigeria — M&amp;E Unit | Mar 2022 – Sep 2023</p>
+      </div>
+      <div class="priority-areas fade-in" style="transition-delay:0.15s;">
+        <h4>15 Priority Areas Covered</h4>
+        <ul class="priority-list">
+          <li>Leadership &amp; Governance</li>
+          <li>Community Participation in Health</li>
+          <li>Partnership for Health</li>
+          <li>RMNCAEH+N</li>
+          <li>Communicable Diseases</li>
+          <li>NCDs, Mental, Oral &amp; Eye Health</li>
+          <li>Emergency Medical Services &amp; Hospital Care</li>
+          <li>Health Promotion &amp; Social Determinants</li>
+          <li>Human Resources for Health</li>
+          <li>Health Infrastructure</li>
+          <li>Medicines, Vaccines &amp; Health Technologies</li>
+          <li>Health Information</li>
+          <li>Research for Health</li>
+          <li>Public Health Emergencies &amp; Preparedness</li>
+          <li>Health Financing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="alt">
+  <div class="section-inner">
+    <p class="section-label">Skills &amp; Tools</p>
+    <h2 class="section-title">What I bring<br/>to the table.</h2>
+    <div class="skills-grid">
+      <div class="skill-block fade-in">
+        <h4>Project Management Tools</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Jira</span>
+          <span class="skill-tag">MS Project</span>
+          <span class="skill-tag">Confluence</span>
+          <span class="skill-tag">Planview</span>
+          <span class="skill-tag">Smartsheet</span>
+          <span class="skill-tag">SharePoint</span>
+          <span class="skill-tag">Miro</span>
+          <span class="skill-tag">Basecamp</span>
+          <span class="skill-tag">WordPress</span>
+          <span class="skill-tag muted">ClickUp (exposure)</span>
+          <span class="skill-tag muted">Asana (exposure)</span>
+        </div>
+      </div>
+      <div class="skill-block fade-in" style="transition-delay:0.1s;">
+        <h4>Data &amp; Reporting Tools</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Excel (Advanced)</span>
+          <span class="skill-tag">PowerPoint</span>
+          <span class="skill-tag">Word</span>
+          <span class="skill-tag">Outlook</span>
+          <span class="skill-tag">SQL (Fundamentals)</span>
+          <span class="skill-tag">Python (Fundamentals)</span>
+        </div>
+      </div>
+      <div class="skill-block fade-in" style="transition-delay:0.2s;">
+        <h4>PMO &amp; Delivery Skills</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">PMO Governance &amp; Controls</span>
+          <span class="skill-tag">RAID &amp; Risk Management</span>
+          <span class="skill-tag">Milestone &amp; Dependency Tracking</span>
+          <span class="skill-tag">Budget Monitoring</span>
+          <span class="skill-tag">Change Control</span>
+          <span class="skill-tag">Stakeholder &amp; Sponsor Reporting</span>
+          <span class="skill-tag">Benefits Tracking</span>
+          <span class="skill-tag">Business Case Support</span>
+          <span class="skill-tag">Multi-Agency Coordination</span>
+          <span class="skill-tag">UAT &amp; Client Acceptance</span>
+          <span class="skill-tag">Requirements Traceability</span>
+        </div>
+      </div>
+      <div class="skill-block fade-in" style="transition-delay:0.3s;">
+        <h4>Methodologies &amp; Domain Knowledge</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Agile / Scrum</span>
+          <span class="skill-tag">Waterfall</span>
+          <span class="skill-tag">Wagile (Hybrid)</span>
+          <span class="skill-tag">PRINCE2 (studying — applied in practice)</span>
+          <span class="skill-tag">APM PMQ (studying)</span>
+          <span class="skill-tag">Public Health &amp; Programme Delivery</span>
+          <span class="skill-tag">Health Policy &amp; Strategy</span>
+          <span class="skill-tag">Monitoring &amp; Evaluation</span>
+          <span class="skill-tag">KPI Monitoring</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="white">
+  <div class="section-inner">
+    <p class="section-label">Licences &amp; Certifications</p>
+    <h2 class="section-title">Continuous learning,<br/>applied in practice.</h2>
+    <div class="certs-grid">
+      <div class="cert-card fade-in">
+        <div class="cert-name">P3O Foundation</div>
+        <div class="cert-issuer">AXELOS</div>
+        <span class="cert-status">In Progress</span>
+      </div>
+      <div class="cert-card fade-in" style="transition-delay:0.05s;">
+        <div class="cert-name">PRINCE2 Foundation</div>
+        <div class="cert-issuer">AXELOS</div>
+        <span class="cert-status">In Progress</span>
+      </div>
+      <div class="cert-card fade-in" style="transition-delay:0.08s;">
+        <div class="cert-name">BCS Business Analysis Foundation Certification</div>
+        <div class="cert-issuer">EXIN</div>
+        <span class="cert-status">In Progress</span>
+      </div>
+      <div class="cert-card rust fade-in" style="transition-delay:0.1s;">
+        <div class="cert-name">Google Project Management Professional Certificate</div>
+        <div class="cert-issuer">Google · 2026</div>
+      </div>
+      <div class="cert-card rust fade-in" style="transition-delay:0.15s;">
+        <div class="cert-name">Stakeholder Management</div>
+        <div class="cert-issuer">Google · 2026</div>
+      </div>
+      <div class="cert-card peach fade-in" style="transition-delay:0.2s;">
+        <div class="cert-name">Professional Certification in Project Management &amp; Business Analysis</div>
+        <div class="cert-issuer">Tritek Academy · 2026</div>
+      </div>
+
+      <div class="cert-card fade-in" style="transition-delay:0.3s;">
+        <div class="cert-name">McKinsey Forward Program</div>
+        <div class="cert-issuer">McKinsey &amp; Company · 2024</div>
+      </div>
+      <div class="cert-card fade-in" style="transition-delay:0.35s;">
+        <div class="cert-name">SQL &amp; Python Fundamentals</div>
+        <div class="cert-issuer">DataCamp · 2022</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--peach-light);padding:5rem 2rem;">
+  <div class="contact-inner">
+    <p class="section-label" style="display:block;">Get In Touch</p>
+    <h2 class="section-title">Open to opportunities<br/>across the UK.</h2>
+    <p class="contact-sub">I am actively seeking PMO Analyst, Project Coordinator, and Programme Support roles. If you are looking for someone dependable, structured, and genuinely committed to delivery — let's talk.</p>
+    <div class="contact-links">
+      <a href="mailto:imkemisola@gmail.com" class="contact-link primary">Send Me an Email</a>
+      <a href="https://www.linkedin.com/in/oluwakemisola-ehindero/" class="contact-link secondary">LinkedIn Profile</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Kemi Ehindero &nbsp;&middot;&nbsp; PMO &amp; Project Support Professional &nbsp;&middot;&nbsp; West Midlands, UK</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
